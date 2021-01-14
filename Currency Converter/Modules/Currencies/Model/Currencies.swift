@@ -22,6 +22,6 @@ struct Currency {
     let value: Double
     
     var image: UIImage?{
-        UIImage(named: name)
+        UIImage(named: name.lowercased())
     }
 }

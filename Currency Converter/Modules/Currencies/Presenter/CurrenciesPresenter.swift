@@ -16,13 +16,24 @@ protocol CurrenciesPresenterProtocol {
 
 class CurrenciesPresenter: CurrenciesPresenterProtocol{
     var view: CurrenciesView?
+    private let api = CurrencyAPI()
     
     init(view: CurrenciesView) {
         self.view = view
     }
     
     func fetchCurrencies(base: String) {
-        
+        view?.startLoading()
+        api.getLatestCurrencies(base: base) {[weak self] (result) in
+            guard let self = self else {return}
+            self.view?.stopLoading()
+            switch result{
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .success(let data):
+                    self.view?.updateUI(currencies: data.currencies)
+            }
+        }
     }
     
     func didTapBaseCurrency(currencies: [Currency]) {

@@ -28,7 +28,18 @@ class CurrenciesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configPresenter()
-        presenter?.fetchCurrencies(base: "EUR")
+        presenter?.fetchCurrencies(base: topCurrencyButton.titleLabel?.text ?? "USD")
+        configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     //MARK:- private helper methods
@@ -36,13 +47,18 @@ class CurrenciesViewController: UIViewController {
         presenter = CurrenciesPresenter(view: self)
     }
     
+    private func configureTableView(){
+        tableView.dataSource = self
+        tableView.delegate = self
+        let nib = UINib(nibName: "CurrencyTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "CurrencyTableViewCell")
+    }
+    
     //Button Actions
     @IBAction func selectCurrencyDidPressed(_ sender: Any) {
         presenter?.didTapBaseCurrency(currencies: currencies)
     }
-    
-    
-    
+
 }
 
 //View protocol to be called from presenter
@@ -77,6 +93,10 @@ extension CurrenciesViewController: CurrenciesView{
 }
 
 extension CurrenciesViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        65
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currencies.count
     }
@@ -97,6 +117,7 @@ extension CurrenciesViewController: UITableViewDelegate{
         let baseCurrency = Currency(name: topCurrencyButton.titleLabel?.text ?? "", value: 1.0)
         let selectedCurrency = currencies[indexPath.row]
         openConverterViewController(baseCurrency, selectedCurrency)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     private func openConverterViewController(_ baseCurrency: Currency, _ selectedCurrency: Currency){

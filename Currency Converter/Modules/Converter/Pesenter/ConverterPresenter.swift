@@ -8,7 +8,7 @@
 import Foundation
 protocol ConverterPresenterProtocol {
     var view: ConverterView? {get set}
-    func convertCurrency(from: String, to: String, value: String)
+    func convertCurrency(from: Currency, to: Currency, amount: String)
 }
 
 class ConverterPresenter: ConverterPresenterProtocol {
@@ -18,16 +18,14 @@ class ConverterPresenter: ConverterPresenterProtocol {
         self.view = view
     }
     
-    func convertCurrency(from: String, to: String, value: String) {
-        guard let doubleValue = validateCurrency(value: value) else {
-            return
-        }
-        print(from, to, doubleValue)
+    func convertCurrency(from: Currency, to: Currency, amount: String) {
+        let convertedCur = valideCurrency(from: amount) * to.value
+        view?.didConvertCurrency(value: String(format: "%.2f", convertedCur))
     }
     
-    private func validateCurrency(value: String) -> Double? {
+    private func valideCurrency(from value: String) -> Double {
         guard let doubleValue = Double(value), doubleValue >= 0 else {
-            return nil
+            return 0
         }
         return doubleValue
     }

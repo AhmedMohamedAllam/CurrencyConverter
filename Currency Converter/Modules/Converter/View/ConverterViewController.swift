@@ -10,7 +10,7 @@ import UIKit
 protocol ConverterView: class {
     func startLoading()
     func stopLoading()
-    func didConvertCurrency(value: Double)
+    func didConvertCurrency(value: String)
 }
 
 class ConverterViewController: UIViewController {
@@ -30,6 +30,7 @@ class ConverterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configPresenter()
+        updateUI()
     }
     
     //MARK:- private helper methods
@@ -37,6 +38,10 @@ class ConverterViewController: UIViewController {
         presenter = ConverterPresenter(view: self)
     }
     
+    private func updateUI(){
+        baseCurrencyLabel.text = fromCurrency?.name
+        convertedCurrencyLabel.text = toCurrency?.name
+    }
 }
 
 extension ConverterViewController: ConverterView{
@@ -48,19 +53,36 @@ extension ConverterViewController: ConverterView{
         activityIndicator.stopAnimating()
     }
     
-    func didConvertCurrency(value: Double) {
-        convertedCurrencyTextField.text = "\(value)"
+    func didConvertCurrency(value: String) {
+        convertedCurrencyTextField.text = value
     }
 }
 
 extension ConverterViewController: UITextFieldDelegate{
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        let amount = textFieldValue(text: textField.text ?? "", string: string)
+        
         guard textField == baseCurrencyTextField else {
-            return
+            return true
         }
-        guard let baseCurrencyName = fromCurrency?.name, let convertedCurrencyName = toCurrency?.name, let value = textField.text else {
-            return
+        guard let baseCurrency = fromCurrency, let convertedCurrency = toCurrency else {
+            return true
         }
-        presenter?.convertCurrency(from: baseCurrencyName, to: convertedCurrencyName, value: value)
+        presenter?.convertCurrency(from: baseCurrency, to: convertedCurrency, amount: amount)
+        
+        return true
     }
+    
+    private func textFieldValue(text: String, string: String) -> String{
+        var currentText = text
+        if string == "" {
+            currentText.removeLast()
+        }else {
+            currentText = text + string
+        }
+        return currentText
+    }
+    
 }
