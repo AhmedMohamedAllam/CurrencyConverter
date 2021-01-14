@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="S8v-sX-Bs1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwnsonHeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="S8v-sX-Bs1">
                                 <rect key="frame" x="124" y="275.5" width="166" height="165.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="S8v-sX-Bs1" secondAttribute="height" multiplier="1:1" id="Okg-6d-Dzb"/>
@@ -46,6 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon" width="200" height="199"/>
+        <image name="SwnsonHeLogo" width="200" height="199"/>
     </resources>
 </document>

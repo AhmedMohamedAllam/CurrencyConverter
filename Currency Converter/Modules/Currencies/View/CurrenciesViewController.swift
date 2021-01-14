@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import  McPicker
+
 protocol CurrenciesView: class{
     func startLoading()
     func stopLoading()
     func updateUI(currencies: [Currency])
+    func showCurrenciesPickerView(data: [String])
 }
 
 
@@ -25,6 +28,7 @@ class CurrenciesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configPresenter()
+        presenter?.fetchCurrencies(base: "EUR")
     }
     
     //MARK:- private helper methods
@@ -34,10 +38,10 @@ class CurrenciesViewController: UIViewController {
     
     //Button Actions
     @IBAction func selectCurrencyDidPressed(_ sender: Any) {
-        if let baseCurrency = topCurrencyButton.titleLabel?.text {
-            presenter?.fetchCurrencies(base: baseCurrency)
-        }
+        presenter?.didTapBaseCurrency(currencies: currencies)
     }
+    
+    
     
 }
 
@@ -54,6 +58,21 @@ extension CurrenciesViewController: CurrenciesView{
     func updateUI(currencies: [Currency]) {
         self.currencies = currencies
         tableView.reloadData()
+    }
+    
+    func showCurrenciesPickerView(data: [String]) {
+        McPicker.showAsPopover(data: [data], fromViewController: self, sourceView: topCurrencyButton, sourceRect: nil, barButtonItem: nil) {  [weak self] (selections: [Int : String]) -> Void in
+            if let name = selections[0] {
+                self?.updateBaseCurrencyButton(selectedCurrency: name)
+                self?.presenter?.fetchCurrencies(base: name)
+            }
+        }
+    }
+    
+    private func updateBaseCurrencyButton(selectedCurrency name: String){
+        topCurrencyButton.setTitle(name, for: .normal)
+        let image = UIImage(named: name.lowercased())
+        topCurrencyButton.setImage(image, for: .normal)
     }
 }
 

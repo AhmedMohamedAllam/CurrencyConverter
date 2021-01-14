@@ -20,15 +20,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lt-0h-7xg">
-                                        <rect key="frame" x="170.5" y="68" width="73" height="40"/>
+                                        <rect key="frame" x="154.5" y="68" width="105" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="VMj-lp-hqU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="16" maxY="0.0"/>
-                                        <state key="normal" title="USD" image="flag.fill" catalog="system">
+                                        <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-4" minY="8" maxX="16" maxY="8"/>
+                                        <state key="normal" title="USD" image="usd">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -161,6 +161,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="jda-si-6Wb" id="eux-ys-u55"/>
                         <outlet property="baseCurrencyLabel" destination="hSu-Tt-OeQ" id="bR6-nf-SJE"/>
                         <outlet property="baseCurrencyTextField" destination="Drd-PC-Ofl" id="gra-qc-bwd"/>
                         <outlet property="convertedCurrencyLabel" destination="9c0-ZF-WRD" id="V0M-nQ-evb"/>
@@ -190,7 +191,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="flag.fill" catalog="system" width="128" height="121"/>
+        <image name="usd" width="48" height="32"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

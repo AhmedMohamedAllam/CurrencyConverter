@@ -11,6 +11,7 @@ import Combine
 protocol CurrenciesPresenterProtocol {
     var view: CurrenciesView? {get set}
     func fetchCurrencies(base: String)
+    func didTapBaseCurrency(currencies: [Currency])
 }
 
 class CurrenciesPresenter: CurrenciesPresenterProtocol{
@@ -22,6 +23,11 @@ class CurrenciesPresenter: CurrenciesPresenterProtocol{
     
     func fetchCurrencies(base: String) {
         
+    }
+    
+    func didTapBaseCurrency(currencies: [Currency]) {
+        let names = currencies.compactMap{$0.name}
+        view?.showCurrenciesPickerView(data: names)
     }
     
 }
