@@ -1,0 +1,13 @@
+//II. Write a function/method utilizing Swift to determine whether two strings are anagrams or not 
+//(examples of anagrams: debit card/bad credit, punishments/nine thumps, etc.)
+
+//Answer
+func isAnagrams(str1: String, str2: String) -> Bool{
+   
+    let subject = str1.lowercased().replacingOccurrences(of: " ", with: "")
+    let anagram = str2.lowercased().replacingOccurrences(of: " ", with: "")
+    
+    guard subject.count == anagram.count else { return false }
+    
+    return subject.sorted() == anagram.sorted()
+}

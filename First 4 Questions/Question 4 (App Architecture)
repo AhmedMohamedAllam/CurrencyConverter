@@ -1,0 +1,8 @@
+IV. Which architecture would you use for the required task below? Why?
+
+Answer:
+I prefer using MVP (Mode-View-Presenter) here, as all UI view updates based on user interaction,
+so the view will respond to user interctions throght UI, 
+then call Presenter which contain all logic and behave according to user needs.
+beside there is calculations and business logic so we need to encapsulate that logic away from the UI, to be able to test it,
+so the presenter is the best solution here from my prospective.
