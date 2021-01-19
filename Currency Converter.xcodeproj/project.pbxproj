@@ -11,7 +11,7 @@
 		F99607DC25AF89CB0078AFF3 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99607DA25AF89CB0078AFF3 /* CurrencyTableViewCell.swift */; };
 		F99607DD25AF89CB0078AFF3 /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F99607DB25AF89CB0078AFF3 /* CurrencyTableViewCell.xib */; };
 		F99607E525AF8D030078AFF3 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99607E425AF8D030078AFF3 /* Currencies.swift */; };
-		F9B0EE7625B005D5004F7AB1 /* CurrenciesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0EE7525B005D5004F7AB1 /* CurrenciesPresenter.swift */; };
+		F9B0EE7625B005D5004F7AB1 /* CurrenciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0EE7525B005D5004F7AB1 /* CurrenciesViewModel.swift */; };
 		F9CE72DD25B0300000F01EB4 /* CurrencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE72AD25B0300000F01EB4 /* CurrencyAPI.swift */; };
 		F9CE72F125B0300000F01EB4 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE72CA25B0300000F01EB4 /* ParameterEncoding.swift */; };
 		F9CE72F325B0300000F01EB4 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE72CC25B0300000F01EB4 /* URLParameterEncoding.swift */; };
@@ -33,7 +33,7 @@
 		F9F621EF25AF659400C35C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9F621EE25AF659400C35C23 /* Assets.xcassets */; };
 		F9F621F225AF659400C35C23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F621F025AF659400C35C23 /* LaunchScreen.storyboard */; };
 		F9FBE4FB25B0105F00E070D8 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FBE4FA25B0105F00E070D8 /* ConverterViewController.swift */; };
-		F9FBE4FF25B0122500E070D8 /* ConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FBE4FE25B0122500E070D8 /* ConverterPresenter.swift */; };
+		F9FBE4FF25B0122500E070D8 /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FBE4FE25B0122500E070D8 /* ConverterViewModel.swift */; };
 		F9FBE50325B019F700E070D8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FBE50225B019F700E070D8 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,7 @@
 		F99607DA25AF89CB0078AFF3 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		F99607DB25AF89CB0078AFF3 /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
 		F99607E425AF8D030078AFF3 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
-		F9B0EE7525B005D5004F7AB1 /* CurrenciesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesPresenter.swift; sourceTree = "<group>"; };
+		F9B0EE7525B005D5004F7AB1 /* CurrenciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewModel.swift; sourceTree = "<group>"; };
 		F9CE72AD25B0300000F01EB4 /* CurrencyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyAPI.swift; sourceTree = "<group>"; };
 		F9CE72CA25B0300000F01EB4 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		F9CE72CC25B0300000F01EB4 /* URLParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		F9F621F125AF659400C35C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9F621F325AF659400C35C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9FBE4FA25B0105F00E070D8 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
-		F9FBE4FE25B0122500E070D8 /* ConverterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterPresenter.swift; sourceTree = "<group>"; };
+		F9FBE4FE25B0122500E070D8 /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
 		F9FBE50225B019F700E070D8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,7 +140,7 @@
 		F9B0EE7425B005C0004F7AB1 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				F9B0EE7525B005D5004F7AB1 /* CurrenciesPresenter.swift */,
+				F9B0EE7525B005D5004F7AB1 /* CurrenciesViewModel.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 		F9FBE4F825B0103A00E070D8 /* Pesenter */ = {
 			isa = PBXGroup;
 			children = (
-				F9FBE4FE25B0122500E070D8 /* ConverterPresenter.swift */,
+				F9FBE4FE25B0122500E070D8 /* ConverterViewModel.swift */,
 			);
 			path = Pesenter;
 			sourceTree = "<group>";
@@ -412,9 +412,9 @@
 				F9CE72F725B0300000F01EB4 /* ServerResponse.swift in Sources */,
 				F9CE72F125B0300000F01EB4 /* ParameterEncoding.swift in Sources */,
 				F9FBE50325B019F700E070D8 /* UIView+Extension.swift in Sources */,
-				F9FBE4FF25B0122500E070D8 /* ConverterPresenter.swift in Sources */,
+				F9FBE4FF25B0122500E070D8 /* ConverterViewModel.swift in Sources */,
 				F9CE72F325B0300000F01EB4 /* URLParameterEncoding.swift in Sources */,
-				F9B0EE7625B005D5004F7AB1 /* CurrenciesPresenter.swift in Sources */,
+				F9B0EE7625B005D5004F7AB1 /* CurrenciesViewModel.swift in Sources */,
 				F9F621E625AF659100C35C23 /* AppDelegate.swift in Sources */,
 				F9FBE4FB25B0105F00E070D8 /* ConverterViewController.swift in Sources */,
 				F9CE730025B0300000F01EB4 /* EndPointType.swift in Sources */,

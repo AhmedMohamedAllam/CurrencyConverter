@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol ConverterView: class {
     func startLoading()
@@ -20,27 +21,27 @@ class ConverterViewController: UIViewController {
     @IBOutlet weak var convertedCurrencyLabel: UILabel!
     @IBOutlet weak var convertedCurrencyTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
-    //public vars will be provided before call
-    var fromCurrency: Currency?
-    var toCurrency: Currency?
     
-    var presenter: ConverterPresenterProtocol?
-    
+    var viewModel: ConverterViewModelProtocol!
+    private var cancellables: Set<AnyCancellable> = []
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        configPresenter()
+        setConvertedCurrencPresenter()
         updateUI()
     }
     
-    //MARK:- private helper methods
-    private func configPresenter(){
-        presenter = ConverterPresenter(view: self)
+    private func updateUI(){
+        baseCurrencyLabel.text = viewModel.baseCurrency.name
+        convertedCurrencyLabel.text = viewModel.convertedCurrency.name
     }
     
-    private func updateUI(){
-        baseCurrencyLabel.text = fromCurrency?.name
-        convertedCurrencyLabel.text = toCurrency?.name
+    private func setConvertedCurrencPresenter(){
+        viewModel.convertedCurrencyPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] (amount) in
+                self?.didConvertCurrency(value: "\(amount)")
+            }.store(in: &cancellables)
     }
 }
 
@@ -67,10 +68,8 @@ extension ConverterViewController: UITextFieldDelegate{
         guard textField == baseCurrencyTextField else {
             return true
         }
-        guard let baseCurrency = fromCurrency, let convertedCurrency = toCurrency else {
-            return true
-        }
-        presenter?.convertCurrency(from: baseCurrency, to: convertedCurrency, amount: amount)
+       
+        viewModel.convertCurrency(amount: amount)
         
         return true
     }
